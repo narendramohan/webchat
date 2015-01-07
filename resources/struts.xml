@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+ 
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" extends="struts-default" namespace="/">
+ 
+	 <interceptors>
+	        <interceptor-stack name="appDefault">
+	             <interceptor-ref name="defaultStack">
+	                <param name="exception.logEnabled">true</param>
+	                <param name="exception.logLevel">ERROR</param>
+	                <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+	            </interceptor-ref>
+	        </interceptor-stack>
+	    </interceptors>
+       	<action name="nodeRegistrationAction" class="com.sybildefender.view.ConnectNodeAction">
+       		<result>noderegistration.jsp</result>
+		</action>
+		<action name="addNodeAction" class="com.sybildefender.view.ConnectNodeAction" method="addNode">
+       		<result>noderegistration.jsp</result>
+		</action>
+		<action name="addConnectionAction" class="com.sybildefender.view.ConnectNodeAction" method="doConnection">
+       		<result>noderegistration.jsp</result>
+		</action>
+		<action name="enableFieldAction" class="com.sybildefender.view.ConnectNodeAction" method="doOk">
+       		<result>noderegistration.jsp</result>
+		</action>
+		
+		<action name="login">  
+			<result>nodeAction</result>  
+		</action>  
+		  
+		<action name="doLogin" class="com.sybildefender.view.LoginAction">
+			<result name="input">login.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="success">login.jsp</result>
+		</action> 
+		<action name="doLogin1" class="com.sybildefender.view.LoginAction" method="doLogin">
+			<result name="input">login.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="success">node.jsp</result>
+		</action> 
+		<action name="sendFileAction" class="com.sybildefender.view.NodeAction">
+		    <interceptor-ref name="exception"/>
+	            <interceptor-ref name="i18n"/>
+	            <interceptor-ref name="fileUpload">
+	       		<param name="allowedTypes">text/plain</param>
+	       		<param name="maximumSize">10240</param>
+	  	    </interceptor-ref> 
+	            <interceptor-ref name="params">
+	                <param name="excludeParams">dojo\..*,^struts\..*</param>
+	            </interceptor-ref>
+	            <interceptor-ref name="validation">
+	                <param name="excludeMethods">input,back,cancel,browse</param>
+	            </interceptor-ref>
+	            <interceptor-ref name="workflow">
+	                <param name="excludeMethods">input,back,cancel,browse</param>
+	            </interceptor-ref>
+	 
+		    <result name="success">recieveFile.jsp</result>
+		    <result name="input">node.jsp</result>
+	 
+		</action>
+		<action name="sybilGardAction" class="com.sybildefender.view.SybilGuardAction">
+			<result>sybilguard.jsp</result>
+		</action> 
+		<action name="viewrecords" class="com.sybildefender.view.UserListAction">  
+			<result name="success">displayrecords.jsp</result>  
+		</action> 
+		 
+		<action name="nodeAction" class="com.sybildefender.view.NodeAction" method="display">  
+				<result name="none">node.jsp</result>  
+		</action> 
+		<action name="recieveFileAction" class="com.sybildefender.view.NodeAction" method="recieveFile">  
+				<result name="input">recieveFile.jsp</result>  
+				<result name="success">recieveFile.jsp</result>  
+		</action> 
+		<action name="netWorkAction" class="com.sybildefender.view.NetworkAction" >
+			<result>network.jsp</result>
+		</action>
+    </package>
+</struts>

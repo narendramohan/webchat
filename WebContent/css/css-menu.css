@@ -1,0 +1,52 @@
+
+div.menu4
+{
+    /*width:500px;margin:0 auto;*//*Uncomment this line to make the menu center-aligned.*/
+    text-align:center;
+    font-size:0;
+    height: 25px;  
+    *position:relative;*top:1px;/*Hacks for IE6 & IE7 */  
+}
+
+div.menu4 a
+{
+    display: inline-block;
+    margin-right:6px; /* It specifies the distance between each tab */
+    background:#FFF url(/webchat/images/bg.gif) repeat-x 0 0;
+    padding-left:4px;
+    vertical-align:top;/*ChangeSet#1*/
+    text-decoration:none;
+}
+
+div.menu4 a span
+{
+    display: inline-block;
+    background:#FFF url(/webchat/images/bg.gif) repeat-x 100% 0;
+    padding: 0 20px;
+    text-decoration:none;
+    font: normal 12px Arial;
+    line-height: 25px;
+    color:#7087A9;
+    vertical-align:top;
+}
+
+div.menu4 a:hover, div.menu4 a.current
+{
+    background:#FFF url(/webchat/images/bg.gif) repeat-x 0 -25px;
+    line-height: 26px;
+}
+
+div.menu4 a:hover span, div.menu4 a.current span
+{
+    background:#FFF url(/webchat/images/bg.gif) repeat-x 100% -25px;
+    line-height: 26px;
+    color:#244D8A;
+    font-weight: bold;
+}
+
+div.menu4sub
+{
+    height:8px;
+    border:1px solid #C2D5EF;
+    background:#eee url(/webchat/images/bg.gif) repeat-x 0 -50px;
+}
