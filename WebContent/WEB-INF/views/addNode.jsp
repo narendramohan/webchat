@@ -6,7 +6,8 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>Spring MVC Form Handling</title>
+  <title>Add Node Webchat</title>
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <script type="text/javascript">
   function goBack()
   {
@@ -15,7 +16,9 @@
   </script>
  </head>
  <body>
-  <h2>Add Node</h2>
+  <section class="container">
+    <div >
+  <p>Add Node</p>
   <hr>
   <form:form method="POST" action="save">
       <table>
@@ -36,5 +39,7 @@
         </tr>
    </table> 
   </form:form>
+  </div>
+  </section>
  </body>
 </html>

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <title>Forgot Password</title>
-<style>
+<%-- <style>
 .error {
 	color: #ff0000;
 }
@@ -22,17 +23,23 @@ body
 background-image:url('../images/ShBZl.png');
 background-color:#cccccc;
 }
-</style>
+</style> --%>
 </head>
 <body>
+  <section class="container">
+    <div class="login">
+    <h1>Forgot Password page to Web chat</h1>
 <form:form name="loginForm" commandName="loginForm" action="forgot-pwd"
 	method="POST">
 	<form:errors path="*" cssClass="errorblock" element="div"/>
-	<h2 align="left"><font color="#EEDD82">Web chat</font></h2>
+	<!-- <h2 align="left"><font color="#EEDD82">Web chat</font></h2> -->
 	<br clear="all" />
 	<br clear="all" />
-	
-	<table align="right" cellpadding="5" cellspacing="5" border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
+	<p colspan="2">Please enter your registered Email Id:</p>		
+	<p><form:input path="emailId" /></p>
+			<p ><input type="submit"
+				value="Send Password" /></p>
+	<%-- <table align="right" cellpadding="5" cellspacing="5" border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
 		<tr style="background: teal;">
 			<td colspan="2"><h2 align="left"><font color="#EEDD82">Forgot Password</font></h2></td>
 			
@@ -49,8 +56,13 @@ background-color:#cccccc;
 			<td colspan="2" align="left"><a href="login-user" shape="rect" style="color:buttonface;">Login</a></td>
 		</tr>
 		
-	</table>
+	</table> --%>
 	<input type="hidden" name="submit" value="submit"/>
 </form:form>
+    </div>
+        <div class="login-help">
+      <p>Click Here to <a href="login-user" shape="rect" style="color:buttonface;">Login</a></p>
+    </div>
+  </section>
 </body>
 </html>

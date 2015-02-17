@@ -3,7 +3,8 @@
 <head>
 <title>User Home Page</title>
 <link href="<%=request.getContextPath()%>/css/css-menu.css" rel="stylesheet" type="text/css" />
-<style>
+ <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<%-- <style>
 .error {
 	color: #ff0000;
 }
@@ -20,7 +21,7 @@ body
 background-image:url('../images/ShBZl.png');
 background-color:#cccccc;
 }
-</style>
+</style> --%>
 <script type="text/javascript">
 
 function openTab(obj, tab){
@@ -55,7 +56,7 @@ function openTab(obj, tab){
 </script>
 </head>
 <body>
-<h1><font color="#EEDD82">Welcome to the Web chat.</font></h1>
+<div align="left" style="position:absolute;top: 0px;left: 0px"><font size="5" color="#EEDD82" face="bold">Welcome to the Web chat.</font></div>
 
 <div align="right" style="position:absolute;top: 0px;right: 0px">
 	<img style="border: none;" src="<%=request.getContextPath()%>/images/user.png"/><font size="5"><%=session.getAttribute("userName") %></font> 
@@ -79,7 +80,7 @@ function openTab(obj, tab){
     <a href="#4" onclick="openTab(this, 'sendfile')"><span>Send File</span></a>
     </c:if>
 	<c:if test="${user.type==1}" >
-	<a href="#5" onclick="openTab(this, 'user')"><span>Manage User</span></a>
+	<a href="#5" onclick="openTab(this, 'user')" class="current"><span>Manage User</span></a>
     <a href="#6" onclick="openTab(this, 'ActiveUsers')"><span>Active Users</span></a>
     <a href="#7" onclick="openTab(this, 'registernode')"><span>Register Nodes</span></a>
     <a href="#8" onclick="openTab(this, 'report')"><span>Sybil Reports</span></a>

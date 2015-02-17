@@ -6,6 +6,7 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <title>Spring MVC Form Handling</title>
   <script type="text/javascript">
   function goBack()
@@ -38,6 +39,8 @@
   </script>
  </head>
  <body>
+ <section class="container">
+    <div >
   <h2>Add User</h2>
   <hr>
   <form:form method="POST" action="save" onsubmit="return validateForm();">
@@ -76,7 +79,8 @@
         </tr>
    </table> 
   </form:form>
-  
+  </div>
+  </section>
   <%-- <c:if test="${!empty users}">
   <h2>List Users</h2>
  <table align="left" border="1">

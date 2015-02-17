@@ -5,13 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <title>Friends</title>
 </head>
 <body>
-<h1><font color="#EEDD82">Click on friend name to start chat</font></h1>
-<div style="position: absolute; top:60px;left: 10px">
+ <section class="container1">
+    <div >
+<h1><font color="#EEDD82" size="5">Click on friend name to start chat</font></h1>
+<br>
+<div>
 <c:if test="${!empty friends}">
-	<table width="100%" border="1" style="border-color: black; border-width: 1pt;border-spacing: 0pt">
+	<table class="rwd-table" width="100%" border="1" style="border-color: black; border-width: 1pt;border-spacing: 0pt">
 	<tr style="background:gray;"><th>Friend Name</th></tr>
 	<c:forEach var="friend" items="${friends}">
 		<c:if test="${friend.friendUserName!=userName}" >
@@ -24,10 +28,12 @@
 	</table>
 </c:if>
 <c:if test="${empty friends}">
-	<table border="1" width="100%" style="border-color: black;border-width:0pt;padding:0;margin: 0px">
+	<table class="rwd-table" border="1" width="100%" style="border-color: black;border-width:0pt;padding:0;margin: 0px">
 	<tr style="background: teal;;"><td>No friends available currently</td></tr>
 	</table>
 </c:if>
 </div>
+</div>
+</section>
 </body>
 </html>

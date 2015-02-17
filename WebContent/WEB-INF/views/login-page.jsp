@@ -7,8 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Page</title>
-<style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<title>Web Chat Login Page</title>
+<%-- <style>
 .error {
 	color: #ff0000;
 }
@@ -25,21 +26,41 @@ body
 background-image:url('../images/ShBZl.png');
 background-color:#cccccc;
 }
-</style>
+</style> --%>
 </head>
 <body >
-
+<section class="container">
+    <div class="login">
+     <h1>Login to Web chat</h1>
 <form:form name="loginForm" commandName="loginForm" action="/webchat/auth/login-user"
 	method="POST">
 	<form:errors path="*" cssClass="errorblock" element="div"/>
-	<h2 align="left"><font color="#EEDD82">Web chat</font></h2>
+	
 	<br clear="all" />
 	<br clear="all" />
 	<%
 //System.out.println(request.getAttribute("test"));
 int failedAttempts = request.getAttribute("failedtimes")!=null?(Integer)request.getAttribute("failedtimes"):0;
 %>
-	<table align="left" width="100%">
+	<p>Login Id</p>
+			<p><form:input path="userId" size="50"/></p>
+			<p>Password</p>
+			<p><form:password path="password" size="50"/></p>	
+			<%if(failedAttempts>0) {%>
+			<p class="remember_me">
+				<img src="<c:url value="captcha"/>">
+				Please Enter Captcha details
+				<form:password path="captcha" size="50"/>
+			</p>
+			
+						
+		
+			
+		<%} %>
+		<c:if test="${error!=null}"><p>
+		<div class="errorblock"><font color="red">${error}</font></div></p></c:if>
+		<p class="submit"><input type="submit" value="Login" /></p>	
+	<%-- <table align="left" width="100%">
 	<tr>
 			<td ><div><img src="../images/people-to-people752x483.png"> </div></td>
 	<td>
@@ -69,7 +90,7 @@ int failedAttempts = request.getAttribute("failedtimes")!=null?(Integer)request.
 		<%} %>
 		<tr style="background: teal;">
 		<td>&nbsp;</td>
-			<td align="left"><input type="submit" value="Login" />&nbsp;|&nbsp;<a href="forgot-pwd"><font color="white">Forgot password</font></a>&nbsp;|&nbsp;<a href="../register"><font color="white">Signup</font></a></td>
+			<td align="left"><p class="submit"><input type="submit" value="Login" /></p>&nbsp;|&nbsp;<a href="forgot-pwd"><font color="white">Forgot password</font></a>&nbsp;|&nbsp;<a href="../register"><font color="white">Signup</font></a></td>
 		</tr>
 
 		<tr style="background: teal;">
@@ -79,9 +100,15 @@ int failedAttempts = request.getAttribute("failedtimes")!=null?(Integer)request.
 	</table>
 	</td>
 	</tr>
-	</table>
+	</table> --%>
 	<input type="hidden" name="submit" value="submit"/>
 	
 </form:form>
+    </div>
+
+    <div class="login-help">
+      <p>Forgot your password? <a href="forgot-pwd">Click here to reset it</a>.&nbsp;Or New User? <a href="../register">Signup</a></p>
+    </div>
+  </section>
 </body>
 </html>

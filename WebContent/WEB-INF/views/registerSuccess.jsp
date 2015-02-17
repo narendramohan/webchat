@@ -25,6 +25,6 @@ background-color:#cccccc;
 </style>
 </head>
 <body>
-	User registration is successful. Please <a href="<%=request.getContextPath()%>/auth/login-user">login</a> again
+	<div class="login">User registration is successful. Please <a href="<%=request.getContextPath()%>/auth/login-user">login</a> again</div>
 </body>
 </html>

@@ -87,7 +87,7 @@ public class LoginLogoutController {
 		logger.debug("submit: "+submit);
 		User user1 = (User)session.getAttribute("user");
 		if(user1!=null)
-			return "home-page";
+			return "redirect:home-page";
 		if(submit!=null) {
 		LoginValidator validator = new LoginValidator();
 		validator.validate(loginForm, model1);
@@ -133,7 +133,7 @@ public class LoginLogoutController {
 					}
 					
 				}
-				return "home-page";
+				return "redirect:home-page";
 			} else if(user != null && user.getStatus()==1){
 				model.addAttribute("error", "You have been blocked due to unauthorized activity. please contact administrator.");
 			} else {
@@ -151,7 +151,17 @@ public class LoginLogoutController {
 		}
 		return "login-page";
 	}
-	
+	@RequestMapping(value = "/home-page")
+	public String home(@RequestParam(value="error", required=false) boolean error, ModelMap model, LoginForm loginForm,
+			BindingResult model1, HttpServletRequest request, HttpSession session) {
+		String submit = request.getParameter("submit");
+		logger.debug("submit: "+submit);
+		User user1 = (User)session.getAttribute("user");
+		if(user1!=null)
+			return "home-page";
+		
+		return "redirect:login-page";
+	}	
 	@RequestMapping(value = "/forgot-pwd")
 	public String loginUser(ModelMap model, LoginForm loginForm,
 			BindingResult model1, HttpServletRequest request, HttpSession session) {

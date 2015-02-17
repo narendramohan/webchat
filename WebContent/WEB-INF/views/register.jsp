@@ -6,8 +6,9 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <title>webchat - Register User</title>
-  <style>
+ <%--  <style>
 	.error {
 		color: #ff0000;
 	}
@@ -24,7 +25,7 @@
 	background-image:url('<%=request.getContextPath()%>/images/ShBZl.png');
 	background-color:#cccccc;
 	}
- </style>
+ </style> --%>
  <script type="text/javascript">
 	 function validateForm()
 	 {
@@ -52,9 +53,24 @@
  </script>
  </head>
  <body>
-  <h2>Register User</h2>
+  <section class="container">
+    <div class="login">
+     <h1>Register User to Web chat</h1>
   <form:form method="POST" action="/webchat/user/register" onsubmit="return validateForm();">
-      <table border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
+  <p><form:label path="name">User Name:</form:label></p>
+           <p><form:input path="name" value="${user.name}"/></p>
+  <p><form:label path="loginId">Login Id:</form:label></p>
+           <p><form:input path="loginId" value="${user.loginId}"/></p> 
+  <p><form:label path="password">User Password:</form:label></p>
+           <p><form:password path="password" value="${user.password}"/></p>
+            <p><form:label path="email">User email:</form:label></p>
+           <p><form:input path="email" value="${user.email}"/></p>
+           <form:hidden path="type" value="0"/>
+  <c:if test="${error!=null}">
+		<p><div class="errorblock"><font color="red">${error}</font></div></p></c:if>
+		
+<p><input type="submit" value="Register"/>&nbsp;<a href="<%=request.getContextPath()%>/auth/login-user" shape="rect" >Login</a><p>
+ <%--      <table border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
        <tr style="background: teal;">
            <td><form:label path="name">User Name:</form:label></td>
            <td><form:input path="name" value="${user.name}"/></td>
@@ -79,8 +95,9 @@
           <tr>
          <td colspan="2" style="background: teal;"><input type="submit" value="Register"/>&nbsp;<a href="<%=request.getContextPath()%>/auth/login-user" shape="rect" style="color:buttonface;">Login</a></td>
         </tr>
-   </table> 
+   </table>  --%>
   </form:form>
-  
+     </div>
+  </section> 
  </body>
 </html>

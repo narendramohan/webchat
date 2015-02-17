@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>User Home Page</title>
-<style>
+ <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<%-- <style>
 .error {
 	color: #ff0000;
 }
@@ -18,18 +19,20 @@ body
 {
 background-image:url('../images/ShBZl.png');
 background-color:#cccccc;
-}
-</style>
+} 
+</style>--%>
 </head>
 <body>
-<h1><font color="#EEDD82">Active users list</font></h1>
+<section class="container">
+    <div >
+<h1><font color="#EEDD82" size="5">Active users list</font></h1>
 <%
 	String userName = (String) session.getAttribute("userName");
 	System.out.println(userName);
 %>
 
 <c:if test="${!empty onlineUsers}">
-<table border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
+<table class="rwd-table" align="center" border="1" style="border-color: teal; border-width: 1pt;border-spacing: 0pt">
 <tr style="background:gray;">   
    <th>User Name</th>
    <th>Ip Address</th></tr>
@@ -46,5 +49,7 @@ background-color:#cccccc;
 <tr style="background:gray;"><td> There are no active users </td> </tr>
 </table>
 </c:if>
+    </div>
+  </section>
 </body>
 </html>

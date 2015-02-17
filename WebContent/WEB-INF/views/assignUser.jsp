@@ -6,7 +6,8 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>Spring MVC Form Handling</title>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+  <title>Assign User to node</title>
   <script type="text/javascript">
   function goBack()
   {
@@ -15,10 +16,12 @@
   </script>
  </head>
  <body>
-  <h2><font color="#EEDD82">Add Node</font></h2>
+  <section class="container1">
+    <div >
+  <h2><font color="#EEDD82">Assign User to node</font></h2>
   <hr>
   <form:form method="POST" action="save">
-      <table>
+      <table class="rwd-table">
        <tr>
            <td><form:label path="nodeName">Node Name:</form:label></td>
            <td><form:hidden path="id" value="${node.id}" readonly="true"/><form:input path="nodeName" value="${node.nodeName}" readonly="true"/></td>
@@ -38,5 +41,7 @@
         </tr>
    </table> 
   </form:form>
+  </div>
+  </section>
  </body>
 </html>

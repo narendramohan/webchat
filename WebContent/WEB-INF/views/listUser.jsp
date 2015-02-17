@@ -5,13 +5,18 @@
 <html>
 <head>
 <title>All Users</title>
+ <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 </head>
 <body>
-<h1><font color="#EEDD82">List Users</font></h1>
-<h3><a href="add" shape="rect" style="color: buttonface;">Add More User</a></h3>
-
+<section class="container1">
+    <div >
+<font color="#EEDD82" size="5">List Users</font>
+<a href="add" class="styled-button-11" shape="rect" style="color: buttonface;">Add More User</a>
+<br/>
+<br/>
 <c:if test="${!empty users}">
- <table align="left" border="1" style="border-color: black; border-width: 1pt;border-spacing: 0pt">
+
+ <table class="rwd-table" align="center" border="1" style="border-color: black; border-width: 1pt;border-spacing: 0pt" width="100%">
   <tr style="background:gray;">
    <th>User ID</th>
    <th>User Name</th>
@@ -34,6 +39,9 @@
    </tr>
   </c:forEach>
  </table>
+
 </c:if>
+    </div>
+  </section>
 </body>
 </html>
